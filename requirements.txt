@@ -3,3 +3,5 @@ pypdf
 pdf2image
 requests
 psutil
+python-dotenv
+pillow
