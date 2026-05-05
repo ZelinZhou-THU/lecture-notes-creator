@@ -59,6 +59,10 @@ python scripts/create_extraction_bat.py "path/to/courseware.pdf" --output ./outp
 - `--mode vlm`（默认，推荐）：高精度模式，适合公式密集/复杂表格
 - `--mode pipeline`：快速模式，适合纯文字/简单排版
 
+> **为什么生成 .bat 文件而不是直接运行？**
+> OpenCode 终端在检测到大量 IO 操作（如 MinerU 的批量文件下载/删除）后容易卡顿死机。
+> 因此采用生成 .bat 文件 → 用户双击运行 → 完成后在 OpenCode 中继续的方案。
+
 ### 1b. 用户双击运行
 
 1. 打开 `./output_dir/mineru/`
