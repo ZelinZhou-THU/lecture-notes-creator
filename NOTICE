@@ -1,0 +1,14 @@
+lecture-notes-creator
+Copyright 2024
+
+This project includes software developed by the author(s).
+It was inspired by/built upon the following open source projects:
+
+- MinerU: https://github.com/opendatalab/MinerU
+  Licensed under Apache License 2.0
+
+- notion skill (from OpenClaw): https://github.com/openclaw/openclaw/tree/main/skills/notion
+  Licensed under Apache License 2.0
+
+- MinerU skill (from LobeHub): https://lobehub.com/zh/skills/openclaw-skills-mineru
+  Licensed under Apache License 2.0
