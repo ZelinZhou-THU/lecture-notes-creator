@@ -24,7 +24,7 @@ Convert confusing academic courseware (PDF) into easy-to-understand self-study l
 
 1. **Clone the project**
    ```bash
-   git clone https://github.com/your-repo/lecture-notes-creator.git
+   git clone https://github.com/ZelinZHOU-THU/lecture-notes-creator.git
    cd lecture-notes-creator
    ```
 

@@ -24,7 +24,7 @@
 
 1. **克隆项目**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/lecture-notes-creator.git
+   git clone https://github.com/ZelinZHOU-THU/lecture-notes-creator.git
    cd lecture-notes-creator
    ```
 

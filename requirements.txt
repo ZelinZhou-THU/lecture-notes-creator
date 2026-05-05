@@ -1,0 +1,5 @@
+pdfplumber
+pypdf
+pdf2image
+requests
+psutil
