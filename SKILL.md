@@ -489,7 +489,12 @@ while True:
 
 > ⚠️ **前置条件：所有章节的Review迭代必须全部终止后，才能执行此步骤。禁止在Review循环未结束时上传Notion。**
 
-**前置条件：** 需要已安装 `notion` skill，且API key已配置。
+**前置条件：** Notion skill 已内置在 `deps/notion/` 目录，需在 `.env` 中配置 `NOTION_API_KEY`。
+
+**如何使用内置的 Notion 脚本：**
+- 所有脚本位于 `deps/notion/scripts/` 目录
+- 脚本会自动从 `.env` 文件读取 `NOTION_API_KEY`
+- 如需代理，设置 `HTTP_PROXY` 和 `HTTPS_PROXY` 环境变量（见 INSTALLATION.md）
 
 #### 6.1 表格问题预检查
 
@@ -619,7 +624,8 @@ python deps/notion/scripts/add_markdown_to_page.py <new_page_id> "讲义_4.9_能
 
 ## 依赖
 
-- **notion** skill（用于上传到Notion）：已内置在 `deps/notion/`，需配置API key
+- **notion** skill（用于上传到Notion）：已内置在 `deps/notion/`，需在 `.env` 中配置 `NOTION_API_KEY`
+- **MinerU skill**（参考文档）：已内置在 `deps/mineru/SKILL.md`（脚本使用仓库增强版 `scripts/mineru_extract.py`）
 - **MinerU API**（高质量 PDF 提取）：在项目根目录 `.env` 文件中设置 `MINERU_TOKEN=your_key`（从 https://mineru.net/ 获取），脚本会自动加载
 - **OCR工具**（用于图片页面文字提取）：`zai-mcp-server_extract_text_from_screenshot`
 - **pdfplumber** + **pdf2image**（页面截图 + PDF 分析 + fallback 文字提取，已包含在 `scripts/extract_pdf.py`）

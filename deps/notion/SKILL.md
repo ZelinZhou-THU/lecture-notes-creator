@@ -382,14 +382,14 @@ See `scripts/` directory for reusable tools:
 **Add markdown to page (with proxy for China users):**
 ```bash
 # Bash/Linux/Mac:
-export HTTP_PROXY=http://127.0.0.1:10808
-export HTTPS_PROXY=http://127.0.0.1:10808
-python scripts/add_markdown_to_page.py <page_id> "D:\Docs\guide.md"
+export HTTP_PROXY=http://127.0.0.1:<your_proxy_port>
+export HTTPS_PROXY=http://127.0.0.1:<your_proxy_port>
+python scripts/add_markdown_to_page.py <page_id> "path/to/guide.md"
 
 # PowerShell (Windows):
-$env:HTTP_PROXY = "http://127.0.0.1:10808"
-$env:HTTPS_PROXY = "http://127.0.0.1:10808"
-python scripts/add_markdown_to_page.py <page_id> "D:\Docs\guide.md"
+$env:HTTP_PROXY = "http://127.0.0.1:<your_proxy_port>"
+$env:HTTPS_PROXY = "http://127.0.0.1:<your_proxy_port>"
+python scripts/add_markdown_to_page.py <page_id> "path/to/guide.md"
 ```
 
 **Archive and recreate pages:**
@@ -473,15 +473,17 @@ If Notion API is unreachable directly (common in China), configure a proxy.
 
 ### Bash (Linux/Mac):
 ```bash
-export HTTPS_PROXY=http://127.0.0.1:10808
-export HTTP_PROXY=http://127.0.0.1:10808
+# 替换为你的代理端口，如 10808, 7890 等
+export HTTPS_PROXY=http://127.0.0.1:<your_proxy_port>
+export HTTP_PROXY=http://127.0.0.1:<your_proxy_port>
 python scripts/add_markdown_to_page.py <page_id> "file.md"
 ```
 
 ### PowerShell (Windows):
 ```powershell
-$env:HTTP_PROXY = "http://127.0.0.1:10808"
-$env:HTTPS_PROXY = "http://127.0.0.1:10808"
+# 替换为你的代理端口
+$env:HTTP_PROXY = "http://127.0.0.1:<your_proxy_port>"
+$env:HTTPS_PROXY = "http://127.0.0.1:<your_proxy_port>"
 python scripts/add_markdown_to_page.py <page_id> "file.md"
 ```
 
@@ -498,7 +500,8 @@ If the environment variables are not set, scripts will attempt direct connection
 ### Custom proxy in Python:
 ```python
 import requests
-proxies = {"https": "http://127.0.0.1:10808", "http": "http://127.0.0.1:10808"}
+# 替换为你的代理端口
+proxies = {"https": "http://127.0.0.1:<your_proxy_port>", "http": "http://127.0.0.1:<your_proxy_port>"}
 requests.get(url, headers=headers, proxies=proxies)
 ```
 

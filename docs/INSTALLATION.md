@@ -69,6 +69,29 @@ Notion skill 已内置在 `deps/notion/` 目录，无需额外安装。
 4. 复制 API Key / Copy API Key
 5. 在 Notion 页面中添加集成 / Add integration to Notion page
 
+### Configure Proxy（可选 Optional，中国用户可能需要）
+
+Notion API 在某些地区可能无法直接访问，如遇到连接失败，可配置代理。
+
+**Bash/Linux/Mac:**
+```bash
+export HTTP_PROXY=http://127.0.0.1:<your_proxy_port>
+export HTTPS_PROXY=http://127.0.0.1:<your_proxy_port>
+```
+
+**PowerShell (Windows):**
+```powershell
+$env:HTTP_PROXY = "http://127.0.0.1:<your_proxy_port>"
+$env:HTTPS_PROXY = "http://127.0.0.1:<your_proxy_port>"
+```
+
+**常见代理端口 / Common proxy ports:**
+- Clash: 7890
+- V2Ray: 10808
+- Shadowsocks: 1080
+
+脚本会自动读取 `HTTP_PROXY` 和 `HTTPS_PROXY` 环境变量。
+
 ## Verify Installation 验证安装
 
 ```bash
