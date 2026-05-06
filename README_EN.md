@@ -9,10 +9,12 @@ Convert confusing academic courseware (PDF) into easy-to-understand self-study l
 - **Two Courseware Types Self-Adaptive**:
   - **Traditional/Sectioned** (physics, chemistry, materials science, etc.): intuition analogy → mathematical derivation → physical meaning
   - **Slide-Based** (CS, AI, engineering, etc.): problem/motivation → core mechanism → application/significance
-- **Sub-Agent AI Review Iterations**: After each chapter is written, a sub-agent reviews from an undergraduate self-study perspective with 6-dimension scoring + iterative optimization; proceeds only when standards are met
+- **Sub-Agent AI Review Iterations**: After each chapter is written, a sub-agent reviews from an undergraduate self-study perspective with 7-dimension scoring + iterative optimization; proceeds only when standards are met
 - **Notion Cloud Sync**: Lecture notes can be uploaded to Notion knowledge base, integrated with course learning pages
 
 ## Quick Start
+
+> 📌 **Full Installation Guide**: For detailed installation steps, API key configuration, proxy settings, and subagent registration, please refer to [INSTALLATION.md](docs/INSTALLATION.md)
 
 ### Prerequisites
 
@@ -89,10 +91,10 @@ lecture-notes-creator/
 ├── NOTICE                       # Credits and open source components
 ├── .gitignore                   # Git ignore rules
 ├── .env                         # API Key config (create manually)
-├── .opencode/
-│   └── agents/
-│       ├── lecture-reviewer.md  # Sub-agent: lecture notes Review
-│       └── image-describer.md   # Sub-agent: image understanding
+ ├── .opencode/
+ │   └── agents/
+ │       ├── lecture-reviewer.md  # Sub-agent: lecture notes Review (needs registration in opencode.json)
+ │       └── image-describer.md   # Sub-agent: image understanding (needs registration in opencode.json)
 ├── docs/
 │   ├── INSTALLATION.md          # Installation guide (zh/en bilingual)
 │   └── QUICKSTART.md            # Quick start (zh/en bilingual)

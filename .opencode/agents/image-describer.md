@@ -2,7 +2,7 @@
 name: image-describer
 description: 对 MinerU 提取的课件图片进行批量理解，生成描述并回填到 Markdown
 mode: subagent
-temperature: 0.4
+temperature: 0.3
 hidden: true
 permission:
   edit: deny

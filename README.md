@@ -9,10 +9,12 @@
 - **两种课件类型自适应**：
   - **传统分节式**（物理、化学、材料科学等）：直觉类比 → 数学推导 → 物理意义
   - **幻灯片式**（CS、AI、工程类等）：问题/动机 → 核心机制 → 应用/意义
-- **子智能体 AI Review 迭代**：每章讲义完成后由子智能体以本科生视角 review，6 维度评分 + 迭代优化，直到达标才进入下一步
+- **子智能体 AI Review 迭代**：每章讲义完成后由子智能体以本科生视角 review，7维度评分 + 迭代优化，直到达标才进入下一步
 - **Notion 云端同步**：讲义可上传至 Notion 知识库，与课程学习页面集成
 
 ## 快速开始
+
+> 📌 **完整安装指南**：详细的安装步骤、API Key 配置、代理设置、子智能体注册请参考 [INSTALLATION.md](docs/INSTALLATION.md)
 
 ### 前置条件
 
@@ -89,10 +91,10 @@ lecture-notes-creator/
 ├── NOTICE                       # 致谢和开源组件
 ├── .gitignore                   # Git 忽略规则
 ├── .env                         # API Key 配置（需手动创建）
-├── .opencode/
-│   └── agents/
-│       ├── lecture-reviewer.md  # 子智能体：讲义 Review
-│       └── image-describer.md   # 子智能体：图片理解
+ ├── .opencode/
+ │   └── agents/
+ │       ├── lecture-reviewer.md  # 子智能体：讲义 Review（需在 opencode.json 中注册）
+ │       └── image-describer.md   # 子智能体：图片理解（需在 opencode.json 中注册）
 ├── docs/
 │   ├── INSTALLATION.md          # 安装指南（中英双语）
 │   └── QUICKSTART.md            # 快速开始（中英双语）

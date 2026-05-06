@@ -92,6 +92,98 @@ $env:HTTPS_PROXY = "http://127.0.0.1:<your_proxy_port>"
 
 脚本会自动读取 `HTTP_PROXY` 和 `HTTPS_PROXY` 环境变量。
 
+## Configure Subagents（配置子智能体）
+
+本 skill 使用两个子智能体：
+- `lecture-reviewer`：以本科生视角review讲义质量（7维度评分）
+- `image-describer`：对课件图片进行批量理解和描述
+
+### 注册方法
+
+有两种配置方式，推荐方式一：
+
+**方式一：opencode.json 在项目目录（推荐）**
+
+在 `lecture-notes-creator` 项目根目录创建 `.opencode.json`：
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "lecture-reviewer": {
+      "description": "以本科生自学视角review讲义质量，7维度评分+Critical/Major/Minor建议",
+      "mode": "subagent",
+      "model": "<your-model>",
+      "temperature": 0.4,
+      "hidden": true,
+      "prompt": "{file:.opencode/agents/lecture-reviewer.md}",
+      "permission": {
+        "edit": "deny",
+        "bash": "deny"
+      }
+    },
+    "image-describer": {
+      "description": "对 MinerU 提取的课件图片进行批量理解，生成描述并回填到 Markdown",
+      "mode": "subagent",
+      "model": "<your-model>",
+      "temperature": 0.3,
+      "hidden": true,
+      "prompt": "{file:.opencode/agents/image-describer.md}",
+      "permission": {
+        "edit": "deny",
+        "bash": "allow"
+      }
+    }
+  }
+}
+```
+
+**方式二：opencode.json 在全局配置目录**
+
+如果你的 opencode.json 在 `~/.opencode/config.json`，需要将 `{file:.opencode/agents/...}` 替换为绝对路径：
+
+```json
+{
+  "prompt": "{file:/absolute/path/to/lecture-notes-creator/.opencode/agents/lecture-reviewer.md}"
+}
+```
+
+**注意：** 将 `/absolute/path/to/lecture-notes-creator` 替换为你实际的项目路径。
+
+### Model 选择
+
+将 `<your-model>` 替换为你使用的模型，常见选项：
+
+**lecture-reviewer（讲义 Review）：**
+- **免费/低成本模型**：`gpt-4o-mini`、`claude-3-5-haiku`、`qwen-turbo`、`deepseek-chat`、`moonshot-v1-8k`
+- **高端模型**（推荐）：`gpt-4o`、`claude-3-5-sonnet`、`claude-3-5-opus`、`gemini-2.0-flash`
+
+**image-describer（图片理解）：**
+- **说明**：此子智能体主要通过 MCP 工具调用视觉理解 API（如 `zai-mcp-server_analyze_image`），model 字段影响较小
+- **推荐**：使用免费/低成本模型即可（如 `gpt-4o-mini`），主要工作由 MCP 完成
+- **MCP 依赖**：需要配置视觉理解 MCP（如 Zhipu AI、OpenAI Vision API 等）
+
+**常见 MCP 视觉接口：**
+- `zai-mcp-server_analyze_image`（视觉理解）
+- MinerU 内置的多模态接口
+- OpenAI GPT-4o（Vision）
+- Anthropic Claude（Vision）
+
+**注意事项：**
+- `temperature` 已优化，建议保持默认值
+- 子智能体配置文件已内置在 `.opencode/agents/` 目录
+
+### 验证注册
+
+运行以下命令验证子智能体是否正确注册：
+
+```bash
+# 查看已注册的子智能体
+opencode agent list
+```
+
+应该能看到 `lecture-reviewer` 和 `image-describer`。
+
 ## Verify Installation 验证安装
 
 ```bash

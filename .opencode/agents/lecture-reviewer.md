@@ -1,4 +1,5 @@
 ---
+name: lecture-reviewer
 description: 以本科生自学视角review讲义质量，7维度评分+Critical/Major/Minor建议
 mode: subagent
 temperature: 0.4
