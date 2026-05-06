@@ -57,12 +57,9 @@ NOTION_API_KEY=your_notion_api_key_here
 
 ## Configure Notion（可选 Optional）
 
-### Install notion skill 安装 notion skill
+### Notion skill 已内置
 
-```bash
-# 确认 notion skill 已安装 / Verify notion skill is installed
-skill list | grep notion
-```
+Notion skill 已内置在 `deps/notion/` 目录，无需额外安装。
 
 ### Get Notion API Key 获取 Notion API Key
 

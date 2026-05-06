@@ -116,9 +116,9 @@ lecture-notes-creator/
 
 - **MinerU**：高保真 PDF 内容提取工具，Modified Apache License 2.0
   - 仓库：https://github.com/opendatalab/MinerU
-- **notion skill**（来自 OpenClaw）：Notion API 集成，MIT License
+- **notion skill**（来自 OpenClaw，已内置在 `deps/notion/`）：Notion API 集成，MIT License
   - 仓库：https://github.com/openclaw/openclaw/tree/main/skills/notion
-- **MinerU skill**（来自 LobeHub）：技能封装参考，MIT License
+- **MinerU skill**（来自 LobeHub，已内置在 `deps/mineru/`）：技能封装参考，MIT License
   - 仓库：https://lobehub.com/zh/skills/openclaw-skills-mineru
 
 ## License

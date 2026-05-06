@@ -496,7 +496,7 @@ while True:
 上传前**必须**运行预检查脚本，检测三类问题：
 
 ```bash
-python ../openclaw-openclaw-notion/scripts/check_markdown_for_notion.py <markdown_file>
+python deps/notion/scripts/check_markdown_for_notion.py <markdown_file>
 ```
 
 **检测项：**
@@ -560,10 +560,10 @@ Notion 上传时连续 markdown 表格会作为一个 table block 整体上传�
 **上传脚本调用：**
 ```bash
 # 创建子页面
-python <notion_skill>/scripts/archive_and_create_pages.py <parent_page_id> --titles "讲义_4.9_能态密度与费米面"
+python deps/notion/scripts/archive_and_create_pages.py <parent_page_id> --titles "讲义_4.9_能态密度与费米面"
 
 # 上传内容
-python <notion_skill>/scripts/add_markdown_to_page.py <new_page_id> "讲义_4.9_能态密度与费米面.md"
+python deps/notion/scripts/add_markdown_to_page.py <new_page_id> "讲义_4.9_能态密度与费米面.md"
 ```
 
 ## 写作原则
@@ -619,7 +619,7 @@ python <notion_skill>/scripts/add_markdown_to_page.py <new_page_id> "讲义_4.9_
 
 ## 依赖
 
-- **notion** skill（用于上传到Notion）：需已安装并配置API key
+- **notion** skill（用于上传到Notion）：已内置在 `deps/notion/`，需配置API key
 - **MinerU API**（高质量 PDF 提取）：在项目根目录 `.env` 文件中设置 `MINERU_TOKEN=your_key`（从 https://mineru.net/ 获取），脚本会自动加载
 - **OCR工具**（用于图片页面文字提取）：`zai-mcp-server_extract_text_from_screenshot`
 - **pdfplumber** + **pdf2image**（页面截图 + PDF 分析 + fallback 文字提取，已包含在 `scripts/extract_pdf.py`）

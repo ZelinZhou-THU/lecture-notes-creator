@@ -116,9 +116,9 @@ This project is built upon the following open source components:
 
 - **MinerU**: High-fidelity PDF content extraction tool, Modified Apache License 2.0
   - Repo: https://github.com/opendatalab/MinerU
-- **notion skill** (from OpenClaw): Notion API integration, MIT License
+- **notion skill** (from OpenClaw, embedded in `deps/notion/`): Notion API integration, MIT License
   - Repo: https://github.com/openclaw/openclaw/tree/main/skills/notion
-- **MinerU skill** (from LobeHub): Skill encapsulation reference, MIT License
+- **MinerU skill** (from LobeHub, embedded in `deps/mineru/`): Skill encapsulation reference, MIT License
   - Repo: https://lobehub.com/zh/skills/openclaw-skills-mineru
 
 ## License
