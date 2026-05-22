@@ -1,63 +1,63 @@
-# Lecture Notes Creator — AI 驱动的课件转讲义工具
+# Lecture Notes Creator — AI-Powered PDF-to-Notes for Students
 
-**[中文文档](README.md) | [English](README_EN.md)**
+**[中文文档](README_ZH.md) | [English](README.md)**
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Powered by MinerU](https://img.shields.io/badge/Powered%20by-MinerU-FF6B35)](https://github.com/opendatalab/MinerU)
 
-> 将晦涩的课件 PDF 转化为清晰的逐页自学讲义 —— AI 提取 + 结构化写作 + 迭代质量审查。
+> Turn confusing course PDFs into clear, page-by-page self-study notes — with AI extraction, structured writing, and iterative quality review.
 
-## 工作流程
+## How It Works
 
 ```mermaid
 flowchart LR
-    A["📄 课件 PDF"] --> B["🔍 MinerU<br/>内容提取"]
-    B --> C["🖼️ 图片<br/>理解"]
-    C --> D["📋 结构<br/>分析"]
-    D --> E["✍️ 讲义<br/>编写"]
-    E --> F{"🔍 AI Review<br/>7 维度评分"}
-    F -->|"评分 ≥ 8"| G["✅ 最终讲义"]
-    F -->|"需改进"| E
-    G --> H["☁️ Notion<br/>同步"]
+    A["📄 Course PDF"] --> B["🔍 MinerU<br/>Extraction"]
+    B --> C["🖼️ Image<br/>Understanding"]
+    C --> D["📋 Structure<br/>Analysis"]
+    D --> E["✍️ Note<br/>Writing"]
+    E --> F{"🔍 AI Review<br/>7-Dim Score"}
+    F -->|"Score ≥ 8"| G["✅ Final Notes"]
+    F -->|"Needs Work"| E
+    G --> H["☁️ Notion<br/>Sync"]
 ```
 
-## 为什么需要 Lecture Notes Creator？
+## Why Lecture Notes Creator?
 
-考试前一晚对着 200 页课件 PDF 发呆？我们都经历过。
+Staring at a 200-page course PDF the night before the exam? We've been there.
 
-大多数同学要么：
-- **被动阅读** — 画了一堆高亮，什么都没记住
-- **复制粘贴幻灯片** — 换了个格式，内容一样看不懂
+Most students either:
+- **Read passively** — highlight everything, remember nothing
+- **Copy-paste slides** — end up with the same confusing content in a different format
 
-Lecture Notes Creator 用不同的方式解决问题：
+Lecture Notes Creator takes a different approach:
 
-| 传统方式 | Lecture Notes Creator |
+| Traditional | Lecture Notes Creator |
 |---|---|
-| 密密麻麻的缩写和符号 | 循序渐进的完整解释 |
-| 推导跳步（"显然可得..."） | 从直觉到数学的完整推理链 |
-| 不知道覆盖了哪些内容 | 逐页映射 —— 每一页课件都有对应讲义 |
-| 看一遍就过 | AI 多轮审查，直到质量达标 |
+| Dense slides with abbreviations | Step-by-step explanations with full context |
+| Skipped derivations ("obviously...") | Complete reasoning chains from intuition to math |
+| No way to check coverage | Page-by-page mapping — every slide accounted for |
+| One-pass reading | Multi-round AI review until quality threshold is met |
 
-## 核心功能
+## Key Features
 
-- 🔬 **高保真内容提取** — MinerU VLM 模式完整保留公式（LaTeX）、表格（HTML）和图片
-- 📖 **页码驱动结构** — 讲义严格按 P1→P2→P3 顺序组织，每页必现，方便对照自学
-- 🧠 **自适应写作风格** — 传统课件（物理/化学）：直觉类比 → 数学推导 → 物理意义；幻灯片课件（CS/AI）：问题动机 → 核心机制 → 应用意义
-- 🔄 **AI Review 迭代** — 子智能体模拟本科生视角，7 维度评分，≥8/10 才通过
-- ☁️ **一键同步 Notion** — 将讲义推送到 Notion 工作区，自动处理格式
+- 🔬 **High-Fidelity Extraction** — MinerU VLM mode preserves formulas (LaTeX), tables (HTML), and figures from any PDF
+- 📖 **Page-Driven Structure** — Notes strictly follow P1→P2→P3 order; every page mapped, nothing missed
+- 🧠 **Adaptive Writing Styles** — Traditional courses (physics/chem): analogy → derivation → meaning; Slide-based (CS/AI): motivation → mechanism → application
+- 🔄 **AI Review Loop** — 7-dimension scoring by a sub-agent playing an undergraduate student; iterates until ≥8/10
+- ☁️ **One-Click Notion Sync** — Push notes to your Notion workspace with proper formatting
 
-## 快速开始
+## Quick Start
 
-> 📖 完整安装指南：[INSTALLATION.md](docs/INSTALLATION.md) | 快速开始：[QUICKSTART.md](docs/QUICKSTART.md)
+> 📖 Full installation guide: [INSTALLATION.md](docs/INSTALLATION.md) | Quick start: [QUICKSTART.md](docs/QUICKSTART.md)
 
-### 前置条件
+### Prerequisites
 
 - Python 3.10+
-- MinerU API Key（从 [mineru.net](https://mineru.net/) 获取）
-- （可选）Notion API Key
+- MinerU API Key (from [mineru.net](https://mineru.net/))
+- (Optional) Notion API Key
 
-### 安装
+### Install
 
 ```bash
 git clone https://github.com/ZelinZHOU-THU/lecture-notes-creator.git
@@ -65,71 +65,71 @@ cd lecture-notes-creator
 pip install -r requirements.txt
 ```
 
-配置 `.env` 文件：
+Configure your `.env` file:
 
 ```env
 MINERU_TOKEN=your_mineru_api_key_here
-NOTION_API_KEY=your_notion_api_key_here  # 可选
+NOTION_API_KEY=your_notion_api_key_here  # Optional
 ```
 
-然后在 [OpenCode](https://opencode.ai) 中打开项目，把 PDF 丢给它就行。
+Then open the project in [OpenCode](https://opencode.ai) and give it your PDF. That's it.
 
 <details>
-<summary>📖 详细使用步骤</summary>
+<summary>📖 Detailed usage steps</summary>
 
-1. **分析 PDF**（可选，超过 200 页才需要）
+1. **Analyze PDF** (optional, only needed if >200 pages)
    ```bash
    python scripts/split_pdf.py analyze "path/to/courseware.pdf" --preview 3
    ```
 
-2. **提取内容**（生成 .bat 文件，双击运行）
+2. **Extract content** (generates .bat file, double-click to run)
    ```bash
    python scripts/create_extraction_bat.py "path/to/courseware.pdf" --output ./output_dir/mineru --mode auto
    ```
 
-3. **告诉 OpenCode "提取完成"** — 它会检查状态并继续
+3. **Tell OpenCode "extraction done"** — it checks status and continues
 
-4. **子智能体分析图片**（可选，图片多时建议开启）
+4. **Sub-agent analyzes images** (optional, recommended for image-heavy PDFs)
 
-5. **OpenCode 自动完成剩余流程**：
-   - 识别课件类型（传统分节式 / 幻灯片式）
-   - 逐页编写讲义
-   - 每章经过 AI Review 迭代优化
-   - 可选上传到 Notion
+5. **OpenCode handles the rest**:
+   - Identifies courseware type (traditional / slide-based)
+   - Writes lecture notes page by page
+   - Each chapter goes through AI review iteration
+   - Optionally uploads to Notion
 
 </details>
 
-## 项目结构
+## Project Structure
 
 ```
 lecture-notes-creator/
-├── SKILL.md                          # 技能定义文件（核心工作流）
+├── SKILL.md                          # Skill definition (core workflow)
 ├── .opencode/agents/
-│   ├── lecture-reviewer.md           # 子智能体：讲义质量审查
-│   └── image-describer.md            # 子智能体：图片理解
+│   ├── lecture-reviewer.md           # Sub-agent: quality review
+│   └── image-describer.md            # Sub-agent: image understanding
 ├── scripts/
-│   ├── split_pdf.py                  # PDF 分析 / 预切分 / 合并
-│   ├── extract_pdf.py                # 页面截图（备用方案）
-│   ├── mineru_extract.py             # MinerU API 调用
-│   ├── create_extraction_bat.py      # 生成 .bat 提取脚本
-│   ├── reconstruct_full_md.py        # 从 JSON 重建 Markdown
+│   ├── split_pdf.py                  # PDF analyze / pre-split / merge
+│   ├── extract_pdf.py                # Page screenshots (fallback)
+│   ├── mineru_extract.py             # MinerU API calls
+│   ├── create_extraction_bat.py      # Generate .bat for extraction
+│   ├── reconstruct_full_md.py        # Rebuild Markdown from JSON
 │   ├── backfill_image_descriptions.py
 │   └── save_batch_json.py
 ├── docs/
-│   ├── INSTALLATION.md               # 完整安装指南（中英双语）
-│   └── QUICKSTART.md                 # 快速开始（中英双语）
+│   ├── INSTALLATION.md               # Full installation guide (zh/en)
+│   └── QUICKSTART.md                 # Quick start guide (zh/en)
 └── references/
-    ├── writing-style-guide.md        # 写作风格参考
-    └── review-prompt.md              # Review 提示词模板
+    ├── writing-style-guide.md        # Writing style reference
+    └── review-prompt.md              # Review prompt template
 ```
 
-## 致谢
+## Credits
 
-本项目基于以下开源组件构建：
+Built with:
 
-- [MinerU](https://github.com/opendatalab/MinerU) — 高保真 PDF 内容提取（Modified Apache License 2.0）
-- [OpenClaw Notion Skill](https://github.com/openclaw/openclaw/tree/main/skills/notion) — Notion API 集成（MIT License）
-- [LobeHub MinerU Skill](https://lobehub.com/zh/skills/openclaw-skills-mineru) — 技能封装参考（MIT License）
+- [MinerU](https://github.com/opendatalab/MinerU) — High-fidelity PDF extraction (Modified Apache License 2.0)
+- [OpenClaw Notion Skill](https://github.com/openclaw/openclaw/tree/main/skills/notion) — Notion API integration (MIT License)
+- [LobeHub MinerU Skill](https://lobehub.com/zh/skills/openclaw-skills-mineru) — Skill reference (MIT License)
 
 ## License
 
