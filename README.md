@@ -49,7 +49,7 @@ Lecture Notes Creator takes a different approach:
 
 ## Quick Start
 
-> 📖 Full installation guide: [INSTALLATION.md](docs/INSTALLATION.md) | Quick start: [QUICKSTART.md](docs/QUICKSTART.md)
+> 📖 Full installation guide: [INSTALLATION.md](docs/INSTALLATION.md) ([English](docs/INSTALLATION_EN.md)) | Quick start: [QUICKSTART.md](docs/QUICKSTART.md) ([English](docs/QUICKSTART_EN.md))
 
 ### Prerequisites
 
@@ -116,8 +116,10 @@ lecture-notes-creator/
 │   ├── backfill_image_descriptions.py
 │   └── save_batch_json.py
 ├── docs/
-│   ├── INSTALLATION.md               # Full installation guide (zh/en)
-│   └── QUICKSTART.md                 # Quick start guide (zh/en)
+│   ├── INSTALLATION.md               # Installation guide (zh)
+│   ├── INSTALLATION_EN.md            # Installation guide (en)
+│   ├── QUICKSTART.md                 # Quick start guide (zh)
+│   └── QUICKSTART_EN.md             # Quick start guide (en)
 └── references/
     ├── writing-style-guide.md        # Writing style reference
     └── review-prompt.md              # Review prompt template

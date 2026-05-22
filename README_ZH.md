@@ -49,7 +49,7 @@ Lecture Notes Creator 用不同的方式解决问题：
 
 ## 快速开始
 
-> 📖 完整安装指南：[INSTALLATION.md](docs/INSTALLATION.md) | 快速开始：[QUICKSTART.md](docs/QUICKSTART.md)
+> 📖 完整安装指南：[INSTALLATION.md](docs/INSTALLATION.md)（[English](docs/INSTALLATION_EN.md)） | 快速开始：[QUICKSTART.md](docs/QUICKSTART.md)（[English](docs/QUICKSTART_EN.md)）
 
 ### 前置条件
 
@@ -116,8 +116,10 @@ lecture-notes-creator/
 │   ├── backfill_image_descriptions.py
 │   └── save_batch_json.py
 ├── docs/
-│   ├── INSTALLATION.md               # 完整安装指南（中英双语）
-│   └── QUICKSTART.md                 # 快速开始（中英双语）
+│   ├── INSTALLATION.md               # 安装指南（中文）
+│   ├── INSTALLATION_EN.md            # 安装指南（英文）
+│   ├── QUICKSTART.md                 # 快速开始（中文）
+│   └── QUICKSTART_EN.md             # 快速开始（英文）
 └── references/
     ├── writing-style-guide.md        # 写作风格参考
     └── review-prompt.md              # Review 提示词模板
