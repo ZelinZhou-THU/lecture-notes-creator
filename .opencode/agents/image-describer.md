@@ -1,6 +1,7 @@
 ---
 name: image-describer
 description: 对 MinerU 提取的课件图片进行批量理解，生成描述并回填到 Markdown
+model: opencode/deepseek-v4-flash-free
 mode: subagent
 temperature: 0.3
 hidden: true
