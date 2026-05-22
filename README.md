@@ -41,11 +41,20 @@ Lecture Notes Creator takes a different approach:
 
 ## Key Features
 
-- 🔬 **High-Fidelity Extraction** — MinerU VLM mode preserves formulas (LaTeX), tables (HTML), and figures from any PDF
-- 📖 **Page-Driven Structure** — Notes strictly follow P1→P2→P3 order; every page mapped, nothing missed
-- 🧠 **Adaptive Writing Styles** — Traditional courses (physics/chem): analogy → derivation → meaning; Slide-based (CS/AI): motivation → mechanism → application
-- 🔄 **AI Review Loop** — 7-dimension scoring by a sub-agent playing an undergraduate student; iterates until ≥8/10
-- ☁️ **One-Click Notion Sync** — Push notes to your Notion workspace with proper formatting
+### 🔬 High-Fidelity Extraction
+MinerU VLM mode preserves formulas (LaTeX), tables (HTML), and figures from any PDF. No more broken equations or garbled text.
+
+### 📖 Page-Driven Structure
+Notes strictly follow P1→P2→P3 order. Every page mapped, nothing missed — cross-reference back to the original slides in seconds.
+
+### 🧠 Adaptive Writing Styles
+Traditional courses (physics/chem) follow analogy → derivation → meaning. Slide-based (CS/AI) follows motivation → mechanism → application. The LLM auto-detects which style fits your PDF.
+
+### 🔄 AI Review Loop
+A sub-agent role-playing an undergraduate student scores each chapter across 7 dimensions. The loop iterates until score ≥8/10 — typically 1-2 rounds.
+
+### ☁️ One-Click Notion Sync
+Push notes to your Notion workspace with proper formatting (headings, LaTeX, tables, callouts). No manual formatting needed.
 
 ## Quick Start
 
