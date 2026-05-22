@@ -60,7 +60,7 @@ Lecture Notes Creator takes a different approach:
 ### Install
 
 ```bash
-git clone https://github.com/ZelinZHOU-THU/lecture-notes-creator.git
+git clone https://github.com/ZelinZhou-THU/lecture-notes-creator.git
 cd lecture-notes-creator
 pip install -r requirements.txt
 ```

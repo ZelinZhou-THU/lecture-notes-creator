@@ -14,7 +14,7 @@
 ### Step 1: Clone the repository 克隆仓库
 
 ```bash
-git clone https://github.com/ZelinZHOU-THU/lecture-notes-creator.git
+git clone https://github.com/ZelinZhou-THU/lecture-notes-creator.git
 cd lecture-notes-creator
 ```
 
