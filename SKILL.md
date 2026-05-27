@@ -16,7 +16,7 @@ Notes follow the courseware's original language (English PDF → English notes, 
 ### Prerequisites
 
 - Python 3.10+, [OpenCode](https://opencode.ai) installed
-- System: `poppler` (see [INSTALLATION.md](docs/INSTALLATION.md) for platform-specific steps)
+- System: `poppler` (see [INSTALLATION.md](https://github.com/ZelinZhou-THU/lecture-notes-creator/blob/main/docs/INSTALLATION.md) for platform-specific steps)
 - API Keys: MinerU (required, from [mineru.net](https://mineru.net)), Notion (optional)
 
 ### Install
@@ -55,7 +55,7 @@ Create `.opencode.json` in project root. Replace `<your-model>` with your model 
 }
 ```
 
-For detailed guide (proxy, MCP, model selection), see [docs/INSTALLATION.md](docs/INSTALLATION.md).
+For detailed guide (proxy, MCP, model selection), see [docs/INSTALLATION.md](https://github.com/ZelinZhou-THU/lecture-notes-creator/blob/main/docs/INSTALLATION.md).
 
 ## Workflow
 
@@ -383,7 +383,7 @@ while True:
 
 > **Prerequisite: All chapter Review iterations must be complete before uploading.**
 
-For detailed Notion upload instructions, see [references/notion-upload.md](references/notion-upload.md).
+For detailed Notion upload instructions, see [references/notion-upload.md](https://github.com/ZelinZhou-THU/lecture-notes-creator/blob/main/references/notion-upload.md).
 
 **Key steps:**
 1. Run pre-check: `python deps/notion/scripts/check_markdown_for_notion.py <file>`
@@ -420,8 +420,8 @@ Notion page hierarchy is customizable. Ask user for their preferred structure (p
 - **pypdf**: PDF pre-splitting (in `scripts/split_pdf.py`)
 - **requests**: MinerU API calls (in `scripts/mineru_extract.py`)
 
-For MinerU API details, see [references/mineru-api-guide.md](references/mineru-api-guide.md).
-For output file structure, see [references/output-structure.md](references/output-structure.md).
+For MinerU API details, see [references/mineru-api-guide.md](https://github.com/ZelinZhou-THU/lecture-notes-creator/blob/main/references/mineru-api-guide.md).
+For output file structure, see [references/output-structure.md](https://github.com/ZelinZhou-THU/lecture-notes-creator/blob/main/references/output-structure.md).
 
 ## Resources
 
