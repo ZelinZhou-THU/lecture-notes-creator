@@ -68,7 +68,7 @@ class DebugLogger:
         self._write_log("SYSTEM_INFO", f"Used RAM: {vm.used / 1024**3:.2f} GB")
         self._write_log("SYSTEM_INFO", f"RAM percent: {vm.percent}%")
         try:
-            disk_root = os.path.splitdrive(os.path.abspath(output_dir))[0]
+            disk_root = os.path.splitdrive(os.path.abspath(self.log_path))[0]
             disk_path = disk_root + "\\" if disk_root else "/"
             disk = psutil.disk_usage(disk_path)
             self._write_log("SYSTEM_INFO", f"Disk free: {disk.free / 1024**3:.2f} GB")

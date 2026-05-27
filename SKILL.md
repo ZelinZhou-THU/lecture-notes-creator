@@ -11,6 +11,52 @@ Transform dense course PDFs into clear self-study notes with iterative AI review
 
 Notes follow the courseware's original language (English PDF → English notes, Chinese PDF → Chinese notes). User can explicitly specify a different language. Key terms annotate the opposite language on first occurrence.
 
+## Setup
+
+### Prerequisites
+
+- Python 3.10+, [OpenCode](https://opencode.ai) installed
+- System: `poppler` (see [INSTALLATION.md](docs/INSTALLATION.md) for platform-specific steps)
+- API Keys: MinerU (required, from [mineru.net](https://mineru.net)), Notion (optional)
+
+### Install
+
+```bash
+git clone https://github.com/ZelinZhou-THU/lecture-notes-creator.git
+cd lecture-notes-creator
+pip install -r requirements.txt
+```
+
+Create `.env` in project root:
+
+```env
+MINERU_TOKEN=your_key_here
+NOTION_API_KEY=your_key_here   # optional
+```
+
+### Register Subagents
+
+Create `.opencode.json` in project root. Replace `<your-model>` with your model name.
+
+```json
+{
+  "agent": {
+    "lecture-reviewer": {
+      "mode": "subagent", "model": "<your-model>", "temperature": 0.4, "hidden": true,
+      "prompt": "{file:.opencode/agents/lecture-reviewer.md}",
+      "permission": { "edit": "deny", "bash": "deny" }
+    },
+    "image-describer": {
+      "mode": "subagent", "model": "<your-model>", "temperature": 0.3, "hidden": true,
+      "prompt": "{file:.opencode/agents/image-describer.md}",
+      "permission": { "edit": "deny", "bash": "allow" }
+    }
+  }
+}
+```
+
+For detailed guide (proxy, MCP, model selection), see [docs/INSTALLATION.md](docs/INSTALLATION.md).
+
 ## Workflow
 
 ### 0. Preparation & Splitting (for long PDFs)
@@ -164,7 +210,7 @@ Only needed when MinerU fails. Generates page screenshots + per-page text as fal
 
 > When the courseware contains many images (diagrams, flowcharts, experimental results), execute this step. MinerU-extracted images are already renamed `img_001.jpg` ~ `img_NNN.jpg`, but their internal structure cannot be understood from filenames alone. This step generates text descriptions via multimodal model and backfills into Markdown.
 
-Use Task tool to dispatch `image-describer` sub-agent:
+Use Task tool to dispatch `image-describer` sub-agent (config in `.opencode/agents/image-describer.md`):
 
 ```
 Input:
@@ -293,7 +339,7 @@ After all chapters, output a cross-chapter exam summary:
 
 > **Important: This is an iterative loop, not a single Review! Must re-Review after revisions until termination conditions are met.**
 
-After each chapter, dispatch `lecture-reviewer` sub-agent (config in `.opencode/agents/lecture-reviewer.md`). Temperature=0.3, read-only (edit: deny, bash: deny).
+After each chapter, dispatch `lecture-reviewer` sub-agent (config in `.opencode/agents/lecture-reviewer.md`). Temperature=0.4, read-only (edit: deny, bash: deny).
 
 **Review loop (must execute fully):**
 
@@ -392,7 +438,6 @@ For output file structure, see [references/output-structure.md](references/outpu
 
 ### references/
 - `writing-style-guide.md` — Writing style guide and templates
-- `review-prompt.md` — Review prompt template (backup, embedded in `.opencode/agents/lecture-reviewer.md`)
 - `notion-upload.md` — Notion upload guide
 - `mineru-api-guide.md` — MinerU API reference and pitfalls
 - `output-structure.md` — Output file structure reference

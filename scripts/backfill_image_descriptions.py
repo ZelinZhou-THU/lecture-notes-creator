@@ -36,7 +36,7 @@ def build_described_md(input_md, output_md, descriptions):
         normalized = img_path.replace('./', '').lstrip('/')
         if normalized in descriptions:
             desc = descriptions[normalized]
-            return f'> **图片内容：**\n> {desc}\n> ![]({img_path})'
+            return f'> **Image content:**\n> {desc}\n> ![]({img_path})'
         else:
             # 保留原样
             return match.group(0)

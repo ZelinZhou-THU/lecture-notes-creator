@@ -9,6 +9,17 @@
 | Memory | 8GB+ RAM (Recommended) |
 | Disk Space | 2GB+ free space |
 
+### OpenCode
+
+This skill runs inside [OpenCode](https://opencode.ai) — an AI-powered coding assistant. Install it by following the guide at [opencode.ai](https://opencode.ai), then open this project in OpenCode to start.
+
+### System Dependencies
+
+The `pdf2image` package requires `poppler` to be installed on your system:
+- **Windows**: Download [poppler for Windows](https://github.com/oschwartz10612/poppler-windows/releases), extract, and add the `bin/` directory to your PATH
+- **macOS**: `brew install poppler`
+- **Linux**: `sudo apt install poppler-utils`
+
 ## Installation Steps
 
 ### Step 1: Clone the repository
@@ -197,5 +208,6 @@ If help messages display, installation is successful.
 | pdf2image | >= 1.16 | PDF to images |
 | python-dotenv | >= 1.0 | Environment variables |
 | pillow | >= 10.0 | Image processing |
+| psutil | >= 5.9 | System monitoring |
 
 All dependencies are automatically installed via `requirements.txt`.

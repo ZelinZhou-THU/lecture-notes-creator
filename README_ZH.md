@@ -120,18 +120,28 @@ lecture-notes-creator/
 │   ├── split_pdf.py                  # PDF 分析 / 预切分 / 合并
 │   ├── extract_pdf.py                # 页面截图（备用方案）
 │   ├── mineru_extract.py             # MinerU API 调用
-│   ├── create_extraction_bat.py      # 生成 .bat 提取脚本
+│   ├── create_extraction_bat.py      # 生成 .bat/.sh 提取脚本
+│   ├── run_mineru_standalone.py      # 在 OpenCode 外运行 MinerU（跨平台）
+│   ├── wait_for_extraction.py        # 等待提取完成
 │   ├── reconstruct_full_md.py        # 从 JSON 重建 Markdown
 │   ├── backfill_image_descriptions.py
 │   └── save_batch_json.py
+├── deps/
+│   ├── mineru/                       # MinerU 技能参考
+│   └── notion/                       # Notion 技能（内置）
+│       └── scripts/                  # Notion 上传脚本
+├── references/
+│   ├── writing-style-guide.md        # 写作风格参考
+│   ├── review-prompt.md              # Review 提示词模板
+│   ├── notion-upload.md              # Notion 上传指南
+│   ├── mineru-api-guide.md           # MinerU API 参考
+│   └── output-structure.md           # 输出文件结构
 ├── docs/
 │   ├── INSTALLATION.md               # 安装指南（中文）
 │   ├── INSTALLATION_EN.md            # 安装指南（英文）
 │   ├── QUICKSTART.md                 # 快速开始（中文）
 │   └── QUICKSTART_EN.md             # 快速开始（英文）
-└── references/
-    ├── writing-style-guide.md        # 写作风格参考
-    └── review-prompt.md              # Review 提示词模板
+└── requirements.txt
 ```
 
 ## 致谢
