@@ -74,25 +74,25 @@ def format_block(block, page_num, lines):
     elif block_type == "paragraph":
         text = extract_text_from_content(content)
         if text.strip():
-            lines.append(f"> [课件 P{page_num}]")
+            lines.append(f"> [Page P{page_num}]")
             lines.append(text)
 
     elif block_type in ("equation_interline", "equation_inline"):
         math = content.get("math_content", "")
         if math.strip():
-            lines.append(f"> [课件 P{page_num}]")
+            lines.append(f"> [Page P{page_num}]")
             lines.append(f"$$\n{math}\n$$")
 
     elif block_type == "table":
         html = content.get("html", "")
         if html.strip():
-            lines.append(f"> [课件 P{page_num}]")
+            lines.append(f"> [Page P{page_num}]")
             lines.append(html)
 
     elif block_type == "image":
         img_path = content.get("image_path", "") or content.get("image_source", {}).get("path", "")
         if img_path:
-            lines.append(f"> [课件 P{page_num}]")
+            lines.append(f"> [Page P{page_num}]")
             # Normalize path to use forward slashes
             img_path = img_path.replace("\\", "/")
             lines.append(f"![]({img_path})")
@@ -101,7 +101,7 @@ def format_block(block, page_num, lines):
         list_type = content.get("list_type", "text_list")
         items = content.get("list_items", [])
         if items:
-            lines.append(f"> [课件 P{page_num}]")
+            lines.append(f"> [Page P{page_num}]")
             for item in items:
                 item_content = item.get("item_content", [])
                 item_type = item.get("item_type", "")
@@ -126,7 +126,7 @@ def format_block(block, page_num, lines):
         # Fallback for any unhandled types
         text = extract_text_from_content(content)
         if text.strip():
-            lines.append(f"> [课件 P{page_num}]")
+            lines.append(f"> [Page P{page_num}]")
             lines.append(text)
 
 
@@ -137,8 +137,7 @@ def reconstruct(content_list_path: str, output_path: str):
         data = json.load(f)
 
     if not isinstance(data, list):
-        print(f"Error: expected list, got {type(data).__name__}", file=sys.stderr)
-        sys.exit(1)
+        raise ValueError(f"Expected list, got {type(data).__name__}")
 
     total_pages = len(data)
     print(f"Processing {total_pages} pages...")

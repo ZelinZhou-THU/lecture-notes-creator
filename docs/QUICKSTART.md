@@ -144,7 +144,7 @@ round = 0
 while True:
     round += 1
     ┌─ 子智能体Review（lecture-reviewer）
-    │  输出：6维度评分 + Critical/Major/Minor建议
+    │  输出：7维度评分 + Critical/Major/Minor建议
     │
     ├─ 终止条件 / Termination:
     │  ✅ 总评分 ≥ 8/10 且无Critical → 跳出
@@ -154,23 +154,24 @@ while True:
     └─ 主智能体修改讲义（采纳建议）
 ```
 
-**6 维度 / 6 Dimensions:**
+**7 维度 / 7 Dimensions:**
 
 | 维度 Dimension | 权重 Weight | 说明 |
 |--------------|------------|------|
-| 概念清晰度 | 25% | 新概念有清晰定义和类比 |
-| 推导连贯性 | 20% | 每步可追溯，无跳步 |
-| 逻辑衔接 | 15% | 段落/章节自然过渡 |
-| 类比恰当性 | 10% | 贴近生活经验 |
-| 页码顺序严格性 | 15% | 小节页码单调递增 |
-| 自学对照友好度 | 15% | 学生能逐页对照 |
+| 概念清晰度 Concept Clarity | 20% | 新概念有清晰定义和类比 |
+| 推导连贯性 Derivation Coherence | 15% | 每步可追溯，无跳步 |
+| 逻辑衔接 Logical Flow | 10% | 段落/章节自然过渡 |
+| 类比恰当性 Analogy Appropriateness | 10% | 贴近生活经验 |
+| 页码顺序严格性 Page Order | 10% | 小节页码单调递增 |
+| 自学对照友好度 Self-Study Friendliness | 10% | 学生能逐页对照 |
+| 内容准确性 Content Accuracy | 25% | 忠实反映原课件内容 |
 
 ## Step 6: 上传 Notion（可选）
 
 ### 6.1 预检查 / Pre-check
 
 ```bash
-python <notion_skill>/scripts/check_markdown_for_notion.py <markdown_file>
+python deps/notion/scripts/check_markdown_for_notion.py <markdown_file>
 ```
 
 ### 6.2 修复问题 / Fix Issues
@@ -182,10 +183,10 @@ python <notion_skill>/scripts/check_markdown_for_notion.py <markdown_file>
 
 ```bash
 # 创建子页面
-python <notion_skill>/scripts/archive_and_create_pages.py <parent_page_id> --titles "讲义_标题"
+python deps/notion/scripts/archive_and_create_pages.py <parent_page_id> --titles "讲义_标题"
 
 # 上传内容
-python <notion_skill>/scripts/add_markdown_to_page.py <new_page_id> "lecture_notes.md"
+python deps/notion/scripts/add_markdown_to_page.py <new_page_id> "lecture_notes.md"
 ```
 
 ## FAQ

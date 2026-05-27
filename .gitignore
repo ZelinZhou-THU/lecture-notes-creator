@@ -6,3 +6,6 @@ __pycache__/
 *.pdf
 output/
 .DS_Store
+*.bat
+descriptions*.json
+extraction_status.json

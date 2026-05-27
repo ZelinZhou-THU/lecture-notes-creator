@@ -120,18 +120,28 @@ lecture-notes-creator/
 │   ├── split_pdf.py                  # PDF analyze / pre-split / merge
 │   ├── extract_pdf.py                # Page screenshots (fallback)
 │   ├── mineru_extract.py             # MinerU API calls
-│   ├── create_extraction_bat.py      # Generate .bat for extraction
+│   ├── create_extraction_bat.py      # Generate .bat/.sh for extraction
+│   ├── run_mineru_standalone.py      # Run MinerU outside OpenCode (cross-platform)
+│   ├── wait_for_extraction.py        # Wait for extraction completion
 │   ├── reconstruct_full_md.py        # Rebuild Markdown from JSON
 │   ├── backfill_image_descriptions.py
 │   └── save_batch_json.py
+├── deps/
+│   ├── mineru/                       # MinerU skill reference
+│   └── notion/                       # Notion skill (built-in)
+│       └── scripts/                  # Notion upload scripts
+├── references/
+│   ├── writing-style-guide.md        # Writing style reference
+│   ├── review-prompt.md              # Review prompt template
+│   ├── notion-upload.md              # Notion upload guide
+│   ├── mineru-api-guide.md           # MinerU API reference
+│   └── output-structure.md           # Output file structure
 ├── docs/
 │   ├── INSTALLATION.md               # Installation guide (zh)
 │   ├── INSTALLATION_EN.md            # Installation guide (en)
 │   ├── QUICKSTART.md                 # Quick start guide (zh)
 │   └── QUICKSTART_EN.md             # Quick start guide (en)
-└── references/
-    ├── writing-style-guide.md        # Writing style reference
-    └── review-prompt.md              # Review prompt template
+└── requirements.txt
 ```
 
 ## Credits

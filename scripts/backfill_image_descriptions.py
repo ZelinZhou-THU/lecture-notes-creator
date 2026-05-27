@@ -28,7 +28,7 @@ def build_described_md(input_md, output_md, descriptions):
         content = f.read()
 
     # 匹配 ![](images/xxx.jpg) 或 ![image](images/xxx.jpg) 格式
-    pattern = r'!\[?\]\((images/[^)]+\.jpg)\)'
+    pattern = r'!\[.*?\]\((images/[^)]+)\)'
 
     def replace(match):
         img_path = match.group(1)

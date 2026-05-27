@@ -9,6 +9,17 @@
 | Memory 内存 | 8GB+ RAM（推荐 Recommended） |
 | Disk Space 磁盘空间 | 2GB+ free space 空闲空间 |
 
+### OpenCode
+
+This skill runs inside [OpenCode](https://opencode.ai) — an AI-powered coding assistant. Install it by following the guide at [opencode.ai](https://opencode.ai), then open this project in OpenCode to start.
+
+### System Dependencies
+
+The `pdf2image` package requires `poppler` to be installed on your system:
+- **Windows**: Download [poppler for Windows](https://github.com/oschwartz10612/poppler-windows/releases), extract, and add the `bin/` directory to your PATH
+- **macOS**: `brew install poppler`
+- **Linux**: `sudo apt install poppler-utils`
+
 ## Installation Steps 安装步骤
 
 ### Step 1: Clone the repository 克隆仓库
@@ -203,6 +214,7 @@ python scripts/split_pdf.py --help
 | pdf2image | >= 1.16 | PDF 转图片 / PDF to images |
 | python-dotenv | >= 1.0 | 环境变量 / Environment variables |
 | pillow | >= 10.0 | 图片处理 / Image processing |
+| psutil | >= 5.9 | 系统监控 / System monitoring |
 
 All dependencies are automatically installed via `requirements.txt`.
 

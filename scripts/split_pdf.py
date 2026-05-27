@@ -343,13 +343,19 @@ def _find_heading_line(lines, marker):
         if line_stripped and line_stripped.startswith(marker_stripped):
             return i
     marker_lower = marker_stripped.lower()
+    best_match = None
+    min_prefix = max(len(marker_lower) // 2, 10)
     for i, line in enumerate(lines):
         if not line.strip().startswith("#"):
             continue
         line_stripped = line.lstrip("#").strip()
-        if line_stripped and line_stripped.lower().startswith(marker_lower[:20]):
+        line_lower = line_stripped.lower()
+        if line_lower == marker_lower:
             return i
-    return None
+        if line_lower.startswith(marker_lower[:min_prefix]) and len(marker_lower) >= min_prefix:
+            if best_match is None:
+                best_match = i
+    return best_match
 
 
 def main():

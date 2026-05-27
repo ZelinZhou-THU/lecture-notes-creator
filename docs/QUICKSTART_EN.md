@@ -170,7 +170,7 @@ while True:
 ### 6.1 Pre-check
 
 ```bash
-python <notion_skill>/scripts/check_markdown_for_notion.py <markdown_file>
+python deps/notion/scripts/check_markdown_for_notion.py <markdown_file>
 ```
 
 ### 6.2 Fix Issues
@@ -182,10 +182,10 @@ python <notion_skill>/scripts/check_markdown_for_notion.py <markdown_file>
 
 ```bash
 # Create sub-page
-python <notion_skill>/scripts/archive_and_create_pages.py <parent_page_id> --titles "Notes_Title"
+python deps/notion/scripts/archive_and_create_pages.py <parent_page_id> --titles "Notes_Title"
 
 # Upload content
-python <notion_skill>/scripts/add_markdown_to_page.py <new_page_id> "lecture_notes.md"
+python deps/notion/scripts/add_markdown_to_page.py <new_page_id> "lecture_notes.md"
 ```
 
 ## FAQ

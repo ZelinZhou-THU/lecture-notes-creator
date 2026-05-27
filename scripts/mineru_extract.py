@@ -68,14 +68,12 @@ class DebugLogger:
         self._write_log("SYSTEM_INFO", f"Used RAM: {vm.used / 1024**3:.2f} GB")
         self._write_log("SYSTEM_INFO", f"RAM percent: {vm.percent}%")
         try:
-            disk = psutil.disk_usage("/")
+            disk_root = os.path.splitdrive(os.path.abspath(output_dir))[0]
+            disk_path = disk_root + "\\" if disk_root else "/"
+            disk = psutil.disk_usage(disk_path)
             self._write_log("SYSTEM_INFO", f"Disk free: {disk.free / 1024**3:.2f} GB")
         except Exception:
-            try:
-                disk = psutil.disk_usage("D:\\")
-                self._write_log("SYSTEM_INFO", f"Disk D: free: {disk.free / 1024**3:.2f} GB")
-            except Exception:
-                pass
+            pass
         proc = psutil.Process(os.getpid())
         mem_info = proc.memory_info()
         self._write_log("SYSTEM_INFO", f"Python process RSS: {mem_info.rss / 1024**2:.1f} MB")
@@ -528,6 +526,10 @@ def download_and_extract(result, output_dir, debug=None):
     # Extract ZIP
     debug and debug.log_step_start("extract_zip")
     with zipfile.ZipFile(zip_path, "r") as zf:
+        for member in zf.infolist():
+            member_path = os.path.join(output_dir, member.filename)
+            if not os.path.abspath(member_path).startswith(os.path.abspath(output_dir) + os.sep):
+                raise ValueError(f"Unsafe path in ZIP: {member.filename}")
         zf.extractall(output_dir)
     debug and debug.log_step_end("extract_zip")
     debug and debug.log_directory_contents(output_dir, "EXTRACTED_FILES")
@@ -673,6 +675,7 @@ def rename_images_in_md(output_dir):
         return
 
     rename_map = {}
+    temp_map = {}
     for idx, old_path in enumerate(seen, 1):
         ext = os.path.splitext(old_path)[1]
         new_name = f"img_{idx:03d}{ext}"
@@ -682,7 +685,12 @@ def rename_images_in_md(output_dir):
         old_full = os.path.join(output_dir, old_path)
         new_full = os.path.join(output_dir, new_path)
         if os.path.exists(old_full) and old_full != new_full:
-            os.rename(old_full, new_full)
+            temp_full = new_full + ".tmp_rename"
+            os.rename(old_full, temp_full)
+            temp_map[temp_full] = new_full
+
+    for temp_full, final_full in temp_map.items():
+        os.rename(temp_full, final_full)
 
     def replace_refs(md_path):
         if not os.path.exists(md_path):
@@ -750,7 +758,7 @@ def update_status(output_dir, status, pid=None, error=None, output_files=None):
         status_data = {
             "status": status,
             "pid": pid or os.getpid(),
-            "start_time": existing_start_time or time.time(),  # Preserve original start_time
+            "start_time": existing_start_time if existing_start_time is not None else time.time(),
             "end_time": time.time() if status in ("completed", "failed") else None,
             "error": error,
             "output_files": output_files or {}
